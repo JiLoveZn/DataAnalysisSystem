@@ -1,0 +1,36 @@
+<html>
+<head><title>Table</title></head>
+<body>
+<table id="tb1" border="1">
+<thead>
+<tr>
+<td>First Name</td>
+<td>Last Name</td>
+<td>&nbsp;</td>
+</tr>
+<thead>
+<tbody id="tb">
+<tr id="1st">
+<td>ÕÅ</td>
+<td>Èý</td>
+<td><input type="button" value="Add" onclick="add()">&nbsp;
+<input type="button" value="Del" onclick="del(this)"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
+<script>
+function add() {
+var trObj = document.createElement("tr");
+trObj.id = new Date().getTime();
+trObj.innerHTML = "<td><input name='firstName'/></td><td><input name='lastName'/></td><td><input type='button' value='Add' onclick='add()'>&nbsp;<input type='button' value='Del' onclick='del(this)'></td>";
+document.getElementById("tb").appendChild(trObj);
+}
+
+function del(obj) {
+var trId = obj.parentNode.parentNode.id;
+var trObj = document.getElementById(trId);
+document.getElementById("tb").removeChild(trObj);
+}
+</script>

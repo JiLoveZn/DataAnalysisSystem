@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+
+    <class name="entity.EntryData" table="ENTRYDATA">
+        <id name="eid" type="java.lang.String" column="eid" length="8">  
+            <generator class="assigned"/>  
+        </id>
+        <property name="item" type="java.lang.String"/>
+		<property name="money" type="double"/>
+		<property name="month" type="int"/>	
+    </class>
+</hibernate-mapping>
+

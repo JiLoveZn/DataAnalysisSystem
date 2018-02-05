@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default">
+     
+    </package>
+    <package name="users" namespace="/users" extends="default">
+    	<action name="*_*" class="action.{1}Action" method="{2}">
+    		<result name="login_success">/users/Users_login_success.jsp</result>
+    		<result name="login_failure">/users/Users_login.jsp</result>
+    		<result name="logout_success">/users/Users_login.jsp</result>
+    		
+    		<result name="queryusers_success">/users/Users_query_success.jsp</result>
+    		<result name="deleteusers_success" type="chain">Admin_query</result>
+    		<result name="addusers_success" >/users/Users_add_success.jsp</result>
+    		<result name="modifyusers_success" >/users/Users_modify.jsp</result>
+    		<result name="saveusers_success" >/users/Users_modify_success.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="salesdata" namespace="/salesdata" extends="default">
+    	<action name="*_*" class="action.{1}Action" method="{2}">
+    		<result name="salesdataquery_success">/staff/SalesData_query_success.jsp</result>
+    		<result name="salesdataqueryByMonth_success">/staff/SalesData_queryByMonth_success.jsp</result>
+    		<result name="salesdataqueryByItem_success">/staff/SalesData_queryByItem_success.jsp</result>
+    		<result name="deletesalesdata_success" type="chain">SalesData_query</result>
+    		<result name="addsalesdata_success" >/staff/SalesData_add_success.jsp</result>
+    		<result name="modifysalesdata_success" >/staff/SalesData_modify.jsp</result>
+    		<result name="savesalesdata_success" >/staff/SalesData_modify_success.jsp</result>
+    		<result name="statisticsSalesData_success">/statistics/SalesData_statistics.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="entrydata" namespace="/entrydata" extends="default">
+    	<action name="*_*" class="action.{1}Action" method="{2}">
+    		<result name="entrydataquery_success">/staff/EntryData_query_success.jsp</result>
+    		<result name="queryByMonth_success">/staff/EntryData_queryByMonth_success.jsp</result>
+    		<result name="queryByItem_success">/staff/EntryData_queryByItem_success.jsp</result>
+    		<result name="deleteentrydata_success" type="chain">EntryData_query</result>
+    		<result name="addentrydata_success" >/staff/EntryData_add_success.jsp</result>
+    		<result name="modifyentrydata_success" >/staff/EntryData_modify.jsp</result>
+    		<result name="saveentrydata_success" >/staff/EntryData_modify_success.jsp</result>
+    		<result name="statisticsEntryData_success">/statistics/EntryData_statistics.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="jfreechart"  extends="jfreechart-default">
+         <action name="EntryDataChartAction" class="action.EntryDataChartAction">
+            <result name="success" type="chart">  
+                <param name="width">800</param>  
+                <param name="height">400</param>  
+            </result>  
+        </action> 
+        <action name="SalesDataChartAction" class="action.SalesDataChartAction">
+            <result name="success" type="chart">  
+                <param name="width">800</param>  
+                <param name="height">400</param>  
+            </result>  
+        </action> 
+          
+    </package>  
+    
+</struts>
